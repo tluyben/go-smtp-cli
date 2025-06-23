@@ -2,12 +2,73 @@
 
 A command-line SMTP client written in Go that allows sending emails with various options including authentication, TLS/SSL support, attachments, and more.
 
+## Quick Install
+
+```bash
+# macOS Intel
+curl -L https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-darwin-amd64 -o smtp-cli && chmod 755 smtp-cli
+
+# macOS Apple Silicon
+curl -L https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-darwin-arm64 -o smtp-cli && chmod 755 smtp-cli
+
+# Linux Intel/AMD64
+wget https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-linux-amd64 -O smtp-cli && chmod 755 smtp-cli
+
+# Linux ARM64
+wget https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-linux-arm64 -O smtp-cli && chmod 755 smtp-cli
+```
+
 ## Installation
 
-### From Source
+### Download Pre-built Binaries
+
+Download the appropriate binary for your platform:
+
+#### macOS Intel
+```bash
+curl -L https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-darwin-amd64 -o smtp-cli
+chmod 755 smtp-cli
+```
+
+#### macOS Apple Silicon (M1/M2/M3)
+```bash
+curl -L https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-darwin-arm64 -o smtp-cli
+chmod 755 smtp-cli
+```
+
+#### Linux Intel/AMD64
+```bash
+wget https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-linux-amd64 -O smtp-cli
+chmod 755 smtp-cli
+```
+
+#### Linux ARM64
+```bash
+wget https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-linux-arm64 -O smtp-cli
+chmod 755 smtp-cli
+```
+
+#### Windows Intel/AMD64
+```powershell
+# PowerShell
+Invoke-WebRequest -Uri https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-windows-amd64.exe -OutFile smtp-cli.exe
+```
+
+#### Windows ARM64
+```powershell
+# PowerShell
+Invoke-WebRequest -Uri https://github.com/tluyben/go-smtp-cli/raw/main/release/smtp-cli-windows-arm64.exe -OutFile smtp-cli.exe
+```
+
+### Build From Source
 
 1. Install Go (1.20 or later)
-2. Build the binary:
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/tluyben/go-smtp-cli.git
+   cd go-smtp-cli
+   ```
+3. Build the binary:
    ```bash
    go build -o smtp-cli main.go
    ```
@@ -26,17 +87,38 @@ make build
 # Create release directory with all binaries
 make release
 
+# Create compressed archives
+make compress
+
+# Clean build artifacts
+make clean
+
+# List built binaries
+make list
+
 # See all available targets
 make help
+```
+
+#### Individual Platform Builds
+
+```bash
+# Build specific platforms
+make build-windows-amd64   # Windows Intel/AMD64
+make build-windows-arm64   # Windows ARM64
+make build-darwin-amd64    # macOS Intel
+make build-darwin-arm64    # macOS Apple Silicon
+make build-linux-amd64     # Linux Intel/AMD64
+make build-linux-arm64     # Linux ARM64
 ```
 
 The following binaries will be created:
 - `smtp-cli-windows-amd64.exe` - Windows Intel/AMD64
 - `smtp-cli-windows-arm64.exe` - Windows ARM64
 - `smtp-cli-darwin-amd64` - macOS Intel
-- `smtp-cli-darwin-arm64` - macOS Apple Silicon (M1/M2)
+- `smtp-cli-darwin-arm64` - macOS Apple Silicon (M1/M2/M3)
 - `smtp-cli-linux-amd64` - Linux Intel/AMD64
-- `smtp-cli-linux-arm64` - Linux ARM64
+- `smtp-cli-linux-arm64` - Linux ARM64 (including Raspberry Pi 64-bit)
 
 ## Usage
 
