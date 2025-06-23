@@ -132,8 +132,8 @@ The following binaries will be created:
 ./smtp-cli \
   --server smtp.example.com \
   --port 587 \
-  --user username \
-  --pass password \
+  --user myusername \
+  --pass mypassword \
   --from sender@example.com \
   --to recipient@example.com \
   --subject "Test Email" \
@@ -147,8 +147,8 @@ The following binaries will be created:
   --server smtp.example.com \
   --port 465 \
   --ssl \
-  --user username \
-  --pass password \
+  --user myusername \
+  --pass mypassword \
   --from sender@example.com \
   --to recipient@example.com \
   --subject "Secure Email" \
@@ -159,17 +159,17 @@ The following binaries will be created:
 
 ```bash
 ./smtp-cli \
-  --server smtp.shoutbox.net \
+  --server smtp.example.com \
   --port 465 \
   --ssl \
-  --user shoutbox \
-  --pass key_xxxxxx \
-  --from frankaler@kalyx.pro \
-  --to tluyben@gmail.com \
-  --cc tycho@otherpay.com \
-  --bcc tycho@appsalad.com,tycho@berryninjas.com \
-  --subject "Discussion about emailthing" \
-  --body-plain "Hi Tycho,\n\nLet's discuss things about emailthing."
+  --user myusername \
+  --pass mypassword \
+  --from sender@example.com \
+  --to recipient@example.com \
+  --cc cc-recipient@example.com \
+  --bcc bcc1@example.com,bcc2@example.com \
+  --subject "Meeting Discussion" \
+  --body-plain "Hello,\n\nLet's discuss our upcoming meeting."
 ```
 
 ## Options
